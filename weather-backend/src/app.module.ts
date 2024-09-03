@@ -1,9 +1,12 @@
-// src/app.module.ts
+// app.module.ts
 import { Module } from '@nestjs/common';
 import { HttpModule } from '@nestjs/axios';
-import { WeatherModule } from './weather/weather.module';
+import { WeatherService } from './weather/weather.service';
+import { WeatherController } from './weather/weather.controller';
 
 @Module({
-  imports: [HttpModule, WeatherModule],
+  imports: [HttpModule],
+  controllers: [WeatherController],
+  providers: [WeatherService],
 })
 export class AppModule {}
