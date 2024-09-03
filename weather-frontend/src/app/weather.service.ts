@@ -1,13 +1,12 @@
-// src/app/weather.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',  // Keeps the service available app-wide
 })
 export class WeatherService {
-  private apiUrl = 'http://localhost:3000/weather';
+  private apiUrl = 'http://localhost:3000/weather';  // Replace with your actual API endpoint
 
   constructor(private http: HttpClient) {}
 

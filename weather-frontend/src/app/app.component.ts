@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { WeatherComponent } from './weather/weather.component';  // Import the WeatherComponent
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [WeatherComponent],  // Import standalone components as needed
+  template: `<app-weather></app-weather>`,  // Use the standalone component in your template
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'weather-frontend';
-}
+export class AppComponent {}
