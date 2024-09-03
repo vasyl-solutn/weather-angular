@@ -7,7 +7,13 @@ export class WeatherController {
   constructor(private readonly weatherService: WeatherService) {}
 
   @Get()
-  getWeather(@Query('city') city: string) {
-    return this.weatherService.getWeather(city);
+  async getWeather(@Query('city') city: string) {
+    try {
+      const response = await this.weatherService.getWeather(city).toPromise();
+      return JSON.stringify(response.data, null, 2); // Return the response data as a formatted string
+    } catch (error) {
+      console.error('Error fetching weather data:', error);
+      return 'Error fetching weather data';
+    }
   }
 }
