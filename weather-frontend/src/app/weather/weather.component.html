@@ -1,20 +1,29 @@
-<div>
-  <label for="city-select">Choose a city:</label>
-  <select id="city-select" [(ngModel)]="city" (change)="getWeather()">
-    <option value="London">London</option>
-    <option value="Lviv">Lviv</option>
-    <option value="Ternopil">Ternopil</option>
-  </select>
+<div class="weather-container">
+  <div class="select-container">
+    <div>
+      <label for="city-select">Choose a city:</label>
+      <select id="city-select" [(ngModel)]="city" (change)="getWeather()">
+        <option value="London">London</option>
+        <option value="Lviv">Lviv</option>
+        <option value="Ternopil">Ternopil</option>
+        <option value="Kyiv">Kyiv</option>
+      </select>
+    </div>
 
-  <label for="unit-toggle">Unit:</label>
-  <select id="unit-toggle" [(ngModel)]="unit" (change)="getWeather()">
-    <option value="metric">Celsius</option>
-    <option value="imperial">Fahrenheit</option>
-  </select>
-</div>
+    <div>
+      <label for="unit-toggle">Unit:</label>
+      <select id="unit-toggle" [(ngModel)]="unit" (change)="getWeather()">
+        <option value="metric">Celsius</option>
+        <option value="imperial">Fahrenheit</option>
+      </select>
+    </div>
+  </div>
 
-<div *ngIf="weatherData">
-  <h3>Weather in {{ weatherData.name }}</h3>
-  <p>Temperature: {{ weatherData.main.temp }}°{{ unit === 'metric' ? 'C' : 'F' }}</p>
-  <p>Weather: {{ weatherData.weather[0].description }}</p>
+  <button (click)="getWeather()">Get Weather</button>
+
+  <div class="weather-data" *ngIf="weatherData">
+    <h3>Weather in {{ weatherData.name }}</h3>
+    <p>Temperature: {{ weatherData.main.temp }}°{{ unit === 'metric' ? 'C' : 'F' }}</p>
+    <p>Weather: {{ weatherData.weather[0].description }}</p>
+  </div>
 </div>
