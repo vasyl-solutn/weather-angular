@@ -13,9 +13,9 @@ export class WeatherService {
 
   constructor(private httpService: HttpService) {}
 
-  getWeather(city: string): Observable<AxiosResponse<any>> {
+  getWeather(city: string, units: string): Observable<AxiosResponse<any>> {
     return this.httpService.get(
-      `${this.apiUrl}?q=${city}&appid=${this.apiKey}`,
+      `${this.apiUrl}?q=${city}&units=${units}&appid=${this.apiKey}`,
     );
   }
 }

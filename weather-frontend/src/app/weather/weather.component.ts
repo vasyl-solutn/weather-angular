@@ -1,8 +1,7 @@
-// weather.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { WeatherService } from '../weather.service';  // Import the service
+import { WeatherService } from '../weather.service';
 
 @Component({
   selector: 'app-weather',
@@ -14,7 +13,8 @@ import { WeatherService } from '../weather.service';  // Import the service
 export class WeatherComponent implements OnInit {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   weatherData: any;
-  city = 'London'; // Default city
+  city = 'London';  // Default city
+  unit = 'metric';  // Default unit
 
   constructor(private weatherService: WeatherService) {}
 
@@ -23,7 +23,7 @@ export class WeatherComponent implements OnInit {
   }
 
   getWeather(): void {
-    this.weatherService.getWeather(this.city).subscribe({
+    this.weatherService.getWeather(this.city, this.unit).subscribe({
       next: (data) => {
         this.weatherData = data;
         console.log('Weather data:', this.weatherData);  // Log the data to the console

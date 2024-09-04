@@ -10,9 +10,12 @@ export class WeatherController {
   constructor(private readonly weatherService: WeatherService) {}
 
   @Get()
-  getWeather(@Query('city') city: string): Observable<any> {
+  getWeather(
+    @Query('city') city: string,
+    @Query('units') units: string,
+  ): Observable<any> {
     return this.weatherService
-      .getWeather(city)
+      .getWeather(city, units)
       .pipe(map((response: AxiosResponse) => response.data));
   }
 }

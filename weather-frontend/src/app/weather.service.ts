@@ -10,7 +10,7 @@ export class WeatherService {
 
   constructor(private http: HttpClient) {}
 
-  getWeather(city: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}?city=${city}`);
+  getWeather(city: string, unit: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}?city=${city}&units=${unit}`);
   }
 }
